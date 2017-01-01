@@ -1,0 +1,34 @@
+{
+  "name": "prender",
+  "version": "0.0.1",
+  "description": "Serve/Publish minimal web pages/apps (html,js,css,etc.)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/etabits/node-prender.git"
+  },
+  "keywords": [
+    "render",
+    "transform",
+    "server",
+    "development"
+  ],
+  "author": "Hasan Arous",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/etabits/node-prender/issues"
+  },
+  "homepage": "https://github.com/etabits/node-prender#readme",
+  "bin": {
+    "prender": "./prender"
+  },
+  "dependencies": {
+    "babel-core": "^6.21.0",
+    "babel-preset-es2015": "6.x",
+    "less": "2.x",
+    "pug": "^2.0.0-beta6"
+  }
+}
