@@ -28,7 +28,7 @@ if (!settings.transformers) {
     .execSync('npm list --depth=0 | tail --lines +2;true')
     .toString()
     .trim()
-    .match(/node-prender-[a-z\-]+/g) || [];
+    .match(/prender-[a-z\-]+/g) || [];
   settings.transformers = [];
   var Module = require('module')
   var referenceModule = {
