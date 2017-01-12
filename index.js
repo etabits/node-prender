@@ -68,6 +68,7 @@ var transformFile = async function (fname) {
       result.code=203;
       result.contentType = p.t.contentType
     } else {
+      result.contentType = defaultMimes[staticFilePathParts.ext] || 'application/octet-stream';
       result.code=200;
     }
     console.log(`(${p.ext||''})\t${fname}`)
@@ -76,6 +77,10 @@ var transformFile = async function (fname) {
 
   return result;
 }
+var defaultMimes = {
+	'css': 'text/css',
+  'svg': 'image/svg+xml',
+};
 
 exports.requestHandler = async function(req, res) {
   let result = await transformFile(req.url)
