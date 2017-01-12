@@ -1,6 +1,6 @@
 {
   "name": "prender",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Serve/Publish minimal web pages/apps (html,js,css,etc.)",
   "main": "index.js",
   "scripts": {
@@ -25,6 +25,5 @@
   "bin": {
     "prender": "./prender"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }
