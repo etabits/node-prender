@@ -22,7 +22,23 @@ if (1==args.length) {
   }
 }
 
-console.log(settings)
+if (!settings.transformers) {
+  console.error('Searching for installed node-prender plugins...')
+  var pluginModuleNames = require('child_process')
+    .execSync('npm list --depth=0 | tail --lines +2;true')
+    .toString()
+    .trim()
+    .match(/node-prender-[a-z\-]+/g) || [];
+  settings.transformers = [];
+  var Module = require('module')
+  var referenceModule = {
+    paths: [require('path').join(process.cwd(), 'node_modules')]
+  };
+  for (var moduleName of pluginModuleNames) {
+    var resolvedModulePath = Module._resolveFilename(moduleName, referenceModule);
+    settings.transformers.push(require(resolvedModulePath)());
+  }
+}
 
 var prender = require('./');
 prender.setSettings(settings)

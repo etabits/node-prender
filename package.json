@@ -26,9 +26,5 @@
     "prender": "./prender"
   },
   "dependencies": {
-    "babel-core": "^6.21.0",
-    "babel-preset-es2015": "6.x",
-    "less": "2.x",
-    "pug": "^2.0.0-beta6"
   }
 }

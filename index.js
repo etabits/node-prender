@@ -31,7 +31,7 @@ var transformFile = async function (fname) {
 
   let possibleSources = [];
   if (!settings.dontTransform.test(fname)) {
-    for (var t of transformers) {
+    for (var t of settings.transformers) {
       if (!t.to.includes(staticFilePathParts.ext)) continue;
       for (var from of t.from) {
         possibleSources.push({
@@ -102,7 +102,7 @@ exports.transformDirectory = async function transformDirectory(root) {
       let output = input;
       let filenameParts = simplePathParts(f)
       var ext = filenameParts.ext;
-      for (var t of transformers) {
+      for (var t of settings.transformers) {
         if (t.from.includes(filenameParts.ext)) {
           output = await t.transform(input)
           ext = t.to[0];
@@ -136,8 +136,3 @@ exports.setSettings = function (s) {
 	settings = s;
 }
 
-var transformers = [
-  require('./renderers/pug')(),
-  require('./renderers/less')(),
-  require('./renderers/es6')(),
-];
