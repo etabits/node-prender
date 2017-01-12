@@ -34,6 +34,7 @@ if (!settings.transformers) {
   var referenceModule = {
     paths: [require('path').join(process.cwd(), 'node_modules')]
   };
+  console.error('Automatically loading:', pluginModuleNames.join(', '))
   for (var moduleName of pluginModuleNames) {
     var resolvedModulePath = Module._resolveFilename(moduleName, referenceModule);
     settings.transformers.push(require(resolvedModulePath)());
@@ -46,6 +47,7 @@ prender.setSettings(settings)
 if ('serve'==mode) {
   const server = http.createServer(prender.requestHandler);
   server.listen(8000);
+  console.error('Listening at http://127.0.0.1:8000/')
 } else if ('dist'==mode) {
   prender.transformDirectory('/');
 }
