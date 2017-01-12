@@ -89,7 +89,7 @@ exports.requestHandler = async function(req, res) {
   return res.end(result.content)
 }
 
-exports.transformDirectory = async function(root) {
+exports.transformDirectory = async function transformDirectory(root) {
   var from = path.join(settings.publicPath, root);
   var to = path.join(settings.targetPath, root);
   let contents = await readDir(from);
